@@ -30,8 +30,8 @@ final class IntersperseTests: XCTestCase {
   }
 
   func testArrayInterspersePerformance() {
+    let xs = Array(repeating: 42, count: 1_000_000)
     measure {
-      let xs = Array(repeating: 42, count: 1_000_000)
       _ = xs.interspersing(13)
     }
   }
@@ -61,10 +61,17 @@ final class IntersperseTests: XCTestCase {
     let sut = xs.interspersing(42)
     XCTAssertEqual(Array(sut), [0, 42, 1, 42, 2, 42, 3, 42, 4, 42, 5])
   }
-
+  
   func testSequenceInterspersePerformance() {
+    let xs = AnySequence(Array(repeating: 42, count: 1_000_000))
     measure {
-      let xs = AnySequence(Array(repeating: 42, count: 1_000_000))
+      _ = xs.interspersing(13)
+    }
+  }
+  
+  func testSequenceInterspersePerformance2() {
+    let xs = AnySequence(Array(0...1_000_000))
+    measure {
       _ = xs.interspersing(13)
     }
   }

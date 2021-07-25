@@ -5,8 +5,9 @@ public extension Array {
   /// elements of the array. Does not add `newElement` to the beginning or end
   /// of the sequence.
   ///
-  /// Separate from the Sequence implementation because this is nearly 3x faster
-  /// than wrapping the Sequence implementation in an `Array.init`.
+  /// Separate from the Sequence implementation because, according to a test I ran,
+  /// this is nearly 3x faster than wrapping the Sequence implementation in an
+  /// `Array.init`.
   ///
   /// For more reading, see
   /// - https://hackage.haskell.org/package/base-4.8.2.0/docs/Data-List.html#v:intersperse
